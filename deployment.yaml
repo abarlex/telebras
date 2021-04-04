@@ -23,10 +23,10 @@ spec:
       - name: goapi
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
-        - name: saida5050
-          containerPort: 80
-          protocol: TCP
-          hostPort: 5050
+        - containerPort: 80
+#          name: saida5050
+#          protocol: TCP
+#          hostPort: 5050
 
 ---
 kind: Service
