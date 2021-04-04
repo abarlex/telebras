@@ -23,10 +23,10 @@ spec:
       - name: goapi
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
-        - name: saida5050
-          protocol: TCP
-          containerPort: 80
+        - containerPort: 80
           hostPort: 5050
+          name: saida5050
+          protocol: TCP
 
 ---
 kind: Service
@@ -37,8 +37,10 @@ metadata:
 spec:
   selector:
     app: goapi
-  type: NodePort
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 5050
+  - name: 80tcp01
+    nodePort: 30059
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  type: NodePort
