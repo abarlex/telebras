@@ -34,7 +34,7 @@ metadata:
 spec:
   selector:
     app: goapi
-  type: ClusterIP
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80
